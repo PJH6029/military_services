@@ -89,3 +89,20 @@ lerna-debug.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# project iles
+img
+fonts
+assets
+phpMyAdmin
+static
+*.png
+*.jpg
+*.JPG
+mail*.xml
+*data*.xml
+
+# Visual Studio Code
+.vscode
+
+
