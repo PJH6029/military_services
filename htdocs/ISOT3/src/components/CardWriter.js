@@ -157,7 +157,7 @@ export default class CardWriter extends HTMLElement {
                         <input type="text" class="title" placeholder="제목*" />
                         <div class="wrap">
                             <div class="writer"></div>
-                            <input type="text" class="receiver" placeholder="수신자 ex) @전체 / @방민수, @석지원" />
+                            <input type="text" class="receiver" placeholder="수신자 ex) " />
                         </div>
                         <textarea class="content" placeholder="내용*"></textarea>
                     </div>

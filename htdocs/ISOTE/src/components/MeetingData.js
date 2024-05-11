@@ -1,5 +1,5 @@
 import {DEL, PUT } from "../utils/requests.js";
-const APIURL = "";
+const APIURL = ""; // security issue
 
 export default class MeetingData extends HTMLElement {
     constructor() {
