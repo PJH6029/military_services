@@ -1,0 +1,73 @@
+<template id="task-app-template">
+    <style>
+        :host {
+            width: 100%;
+            height: 100%;
+        }
+
+        :host([task-id=dashboard]) textarea {
+            display: none;
+        }
+
+        :host([task-id=dashboard]) #remove-btn {
+            display: none;
+        }
+
+        :host(:not([task-id=dashboard])) .dashboard {
+            display: none;
+        }
+
+        .task-container {
+            /* width: 100%;
+            height: 100%;
+            position: relative; */
+            padding-left: 0.5rem;
+        }
+
+        #task-name-input {
+            font-size: 2rem;
+            font-weight: bold;
+            font-family: 'kakao';
+            color: #d8d8d8;
+            border: 0;
+            outline: none;
+            background: transparent;
+        }
+
+        .header {
+            padding: 0.5rem 0.5rem 2rem 0.5rem;
+        }
+
+        .icon-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 4rem;
+
+            width: 2rem;
+            height: 2rem;
+            
+            background-color: var(--primary);
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+        }
+
+        .remove-btn {
+            background: #e91e63;
+            position: fixed;
+            top: 1.5rem;
+            right: 2rem;
+        }
+    </style>
+    <div class="container">
+        <div class="remove-btn icon-btn" id="remove-btn">
+            <img src="./svgs/remove.svg">
+        </div>
+        <div class="header" id="task-name"><input type="text" id="task-name-input"></div>
+        <div class="task-container">
+            <div class="dashboard"></div>
+            <textarea name="task-contents" id="task-content" cols="30" rows="10" placeholder="아무거나 쓰세요" value=""></textarea>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,87 @@
+export const time = {
+    breakTimeStr(timeStr, stamp=false) { // TODO 나중에 timestamp로
+        let key = ["year", "month", "date", "hours", "minutes", "seconds"];
+
+        const obj = {};
+        if (stamp) {
+            const tmp = timeStr.split(" ");
+            const ary = tmp[0].split("-").concat(tmp[1].split(":"));
+    
+            key.forEach((k, idx) => {
+                obj[k] = ary[idx];
+            });
+        } else {
+            const ary = [];
+            ary.push(timeStr.substr(0, 4));
+            for (let i = 1; i < 6; i++) {
+                ary.push(timeStr.substr(2*i + 2, 2));
+            }
+
+            key.forEach((k, index) => {
+                obj[k] = ary[index];
+            });
+        }
+
+        return obj;
+    },
+    
+    toTimeStr(dateObj) {
+        const year = dateObj.getFullYear();
+        const month = (dateObj.getMonth() + 1).toString().padStart(2, 0);
+        const date = dateObj.getDate().toString().padStart(2, 0);
+        const hours = dateObj.getHours().toString().padStart(2, 0);
+        const minutes = dateObj.getMinutes().toString().padStart(2, 0);
+        const seconds = dateObj.getSeconds().toString().padStart(2, 0);
+
+        return `${year}${month}${date}${hours}${minutes}${seconds}`;
+    },
+
+    toTimeStampStr(dateObj) {
+        const year = dateObj.getFullYear();
+        const month = (dateObj.getMonth() + 1).toString().padStart(2, 0);
+        const date = dateObj.getDate().toString().padStart(2, 0);
+        const hours = dateObj.getHours().toString().padStart(2, 0);
+        const minutes = dateObj.getMinutes().toString().padStart(2, 0);
+        const seconds = dateObj.getSeconds().toString().padStart(2, 0);
+
+        return `${year}-${month}-${date} ${hours}:${minutes}:${seconds}`;
+    },
+
+    toTimeObj(timeStampStr) {
+        let timeObj = new Date();
+        const { year, month, date, hours, minutes, seconds } = this.breakTimeStr(timeStampStr);
+        
+        year && timeObj.setFullYear(year);
+        month && timeObj.setMonth(month-1);
+        date && timeObj.setDate(date);
+        hours && timeObj.setHours(hours);
+        minutes && timeObj.setMinutes(minutes);
+        seconds && timeObj.setSeconds(seconds);
+        return timeObj;
+    },
+
+    toTimeNum(timeStampStr) {
+        const splt = timeStampStr.split(" ");
+        const front = splt[0].split("-");
+        const back = splt[1].split(":");
+        return parseInt(front.concat(back).join(""));
+    },
+
+    getDayStr(timeStampStr) {
+        const dayList = ['일', '월', '화', '수', '목', '금', '토'];
+        return dayList[this.toTimeObj(timeStampStr).getDay()];
+    },
+
+    isToday(timeStampStr) {
+        return timeStampStr.substr(0, 10) === time.toTimeStampStr(new Date()).substr(0, 10);
+    },
+
+    getCurrentTimeStamp() {
+        return this.toTimeStampStr(new Date());
+    },
+
+    isTimeStamp(testStr) {
+        const regex = /^20\d{2}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/;
+        return regex.test(testStr);
+    }
+}

@@ -1,0 +1,64 @@
+<template id="task-item-template">
+    <style>
+        :host {
+            background-color: var(--primary);
+            border-radius: 0.5rem;
+            cursor: pointer;
+            /* transition: 0.1s ease-in-out; */ /* TODO transiton */
+            /* transition-delay: 0.1s; */
+            padding: 0.3rem 1rem 0.3rem 1rem;
+            width: 8rem;
+            /* opacity: 0; */
+            visibility: show;
+        }
+
+        :host([hide]) {
+            cursor: pointer;
+            /* opacity: 1; */
+            visibility: hidden;
+        }
+
+        /* :host([plus]:hover) {
+            transform: translateY(-3px);
+        } */
+
+        :host([plus]) {
+            background-color: transparent;
+            padding: 0 0 0 0;
+            width: 10rem;
+        }
+
+        
+        :host([plus]) .add-div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px lightgray dashed;
+            border-radius: 0.5rem;
+            height: 1.6rem;
+        }
+
+        :host([plus]) .add-btn {
+            width: 1rem;
+            height: 1rem;
+            border-radius: 2.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input {
+            width: 100%;
+            font-size: 1rem;
+            font-family: 'kakao';
+            border: 0;
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            outline: none;
+        }
+    </style>
+    <span class="task-name"></span>
+    <!-- <input type="text" class="task-name" readonly> -->
+    <div class="add-div"></div>
+</template>

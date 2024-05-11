@@ -1,0 +1,63 @@
+:root {
+    --primary: rgb(112, 163, 184);
+    --secondary: rgb(75, 133, 156);
+    --background: rgb(247 247 247);
+    --card-background: white;
+}
+
+@font-face {
+    font-family: 'kakao';
+	src: url(./fonts/KakaoRegular.woff) format('woff');
+}
+
+* {
+    font-family: 'kakao';
+}
+
+body {
+    background-color: var(--background);
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    display: flex;
+    gap: 1.5rem;
+    width: calc(100% - 17.5rem);
+    height: calc(100% - 2rem);
+    margin-left: 14.5rem;
+    padding: 1rem;
+    /* overflow: hidden; */
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+.icon-btn {
+    background-color: #00bcd4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 1.9rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.icon-btn:hover {
+    transform: translateY(-2px);
+}
+
+input {
+    font-size: 0.9rem;
+    padding: 0.25rem;
+    padding-left: 0.5rem;
+    height: 2rem;
+    border: 0.2rem var(--primary) solid;
+    border-radius: 0.5rem;
+    font-family: 'kakao';
+    outline: none;
+}

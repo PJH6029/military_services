@@ -1,0 +1,223 @@
+<template id="side-bar-template">
+    <style>
+        :host {
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            width: 12rem;
+            height: calc(100% - 1.5rem);
+            padding: 0.75rem;
+            background-color: var(--primary);
+            box-shadow: 0 0 10px 0px rgb(0 0 0 / 10%);
+            color: white;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .header > p {
+            font-size: 1rem;
+            font-weight: bold;
+            line-height: 1.1rem;
+            margin: 0;
+        }
+
+        .header > svg {
+            margin-top: 0.25rem;
+        }
+
+        .divider {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            border-radius: 2px;
+        }
+
+        .item {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            border-radius: 0.5rem;
+            gap: 1rem;
+            cursor: pointer;
+            height: 2rem;
+            padding: 0.3rem 1rem 0.3rem 1rem;
+            transition: 0.2s ease-in-out;
+        }
+
+
+        .item[selected] {
+            background-color: #372e70;
+        }
+
+        .item p {
+            font-size: 1rem;
+        }
+
+        .item svg {
+            fill: white;
+            transition: 0.2s ease-in-out;
+            margin-top: 0.1rem;
+        }
+
+        .info {
+            justify-content: flex-end;
+            font-family: consolas;
+            font-size: 0.6rem;
+            user-select: none;
+            cursor: pointer;
+            gap: 0.2rem;
+            padding: 0.5rem;
+        }
+
+        .inner {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .counter {
+            display: flex;
+            font-size: 0.7rem;
+            gap: 0.5rem;
+            justify-content: space-between;
+        }
+
+        .counter > div {
+            flex: 1;
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.5rem;
+            background-color: rgb(233, 30, 99);
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: 0.2s ease-in-out;
+        }
+
+        .counter > div:nth-child(1) {
+            flex: 0.7;
+        }
+
+        .counter > div[allRead] {
+            background-color: var(--primary);
+        }
+
+        .icon-btn {
+            background-color: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 2rem;
+            height: 1.9rem;
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+        }
+
+        .icon-btn:hover {
+            transform: translateY(2px);
+        }
+
+        .icon-btn > svg {
+            transform: rotate(180deg);
+        }
+
+        #task-more-btn[up] > svg {
+            transform: rotate(0deg);
+        }
+
+        #task-more-btn {
+            margin-left: 1.5rem;
+            opacity: 0;
+        }
+
+        #task:hover #task-more-btn {
+            opacity: 1;
+        }
+                    
+        #task {
+            flex-direction: column;
+            gap: 0.3rem;
+            height: auto;
+            cursor: auto;
+        }
+
+        #task-menu {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 1rem;
+            height: 2rem;
+            cursor: pointer;
+        }
+
+        #task-list {
+            flex-direction: column;
+            gap: 7px;
+            display: flex;
+            height: 0px;
+            /* transition: 0.3s ease-in-out; */
+        }
+
+    </style>
+
+    <div class="wrapper">
+        <div class="header" onclick="location.reload()">
+            <svg width="38" height="38" fill="white" viewBox="0 0 16 16">
+                <path d="M5 7h3V4H5v3Z"></path>
+                <path d="M1 2a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-2H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 9H1V8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6H1V5H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 2H1Zm11 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7Zm2 0a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM3.5 10a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-6Zm0 2a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-6ZM4 4h-.5a.5.5 0 0 0 0 1H4v1h-.5a.5.5 0 0 0 0 1H4a1 1 0 0 0 1 1v.5a.5.5 0 0 0 1 0V8h1v.5a.5.5 0 0 0 1 0V8a1 1 0 0 0 1-1h.5a.5.5 0 0 0 0-1H9V5h.5a.5.5 0 0 0 0-1H9a1 1 0 0 0-1-1v-.5a.5.5 0 0 0-1 0V3H6v-.5a.5.5 0 0 0-1 0V3a1 1 0 0 0-1 1Zm7 7.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 0-.5.5Z"></path>
+            </svg>
+            <p>ISOT for Everyone</p>
+        </div>
+        <div class="divider"></div>
+
+        <!-- TODO: svg 제작 -->
+        <div class="inner">
+            <div class="item" id="task">
+                <div id="task-menu">
+                    <svg width="22" height="22" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                        <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+                    </svg>
+                    <p>TASKS</p>
+                    <div class="icon-btn" title="더 보기" id="task-more-btn">
+                        <svg width="16" height="16" fill="white" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <task-list></task-list>
+            </div>
+            <div class="item" id="calender">
+                <svg width="22" height="22" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2h-11zm5 2h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm-5 1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3zm9-1h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" />
+                </svg>
+                <p>CALENDER</p>
+            </div>
+            <div class="item" id="meeting">
+                <svg width="22" height="22" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M0 1.5V13a1 1 0 0 0 1 1V1.5a.5.5 0 0 1 .5-.5H14a1 1 0 0 0-1-1H1.5A1.5 1.5 0 0 0 0 1.5z" />
+                    <path fill-rule="evenodd" d="M3.5 2A1.5 1.5 0 0 0 2 3.5v11A1.5 1.5 0 0 0 3.5 16h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 16 9.586V3.5A1.5 1.5 0 0 0 14.5 2h-11zm6 8.5a1 1 0 0 1 1-1h4.396a.25.25 0 0 1 .177.427l-5.146 5.146a.25.25 0 0 1-.427-.177V10.5z" />
+                </svg>
+                <p>MEETING</p>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper info" id="isot-info">
+        <span style="font-weight: bold; font-size: 1.1rem;">v1.0</span> last update 22.12.22
+    </div>
+</template>

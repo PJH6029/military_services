@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뛰엠 알림창</title>
+    <style>
+        .alert-info {
+            font-size: 2rem;
+            font-weight: bold;
+            font-family: "바른공군체";
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const writersStr = localStorage.getItem("writers") || "";
+        const writers = writersStr.split(",");
+        
+        const alertElem = document.createElement("div");
+        alertElem.classList.add("alert-info");
+
+        let displayMsg = writers.join(", ") + "에게서 채팅이 왔습니다";
+        alertElem.innerHTML = displayMsg;
+        document.body.append(alertElem);
+    </script>
+</body>
+</html>

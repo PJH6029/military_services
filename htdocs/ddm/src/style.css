@@ -1,0 +1,110 @@
+@font-face {
+    font-family: 'kakao';
+    src: url('../fonts/KakaoRegular.woff') format('woff');
+}
+
+* {
+    /* font-family: "바른공군체", "kakao"; */
+    font-family: "kakao";
+    --main-width: 50rem;
+    --main-height: 45rem;
+    --user-list-width: 10rem;
+    --container-width: calc(var(--main-width) - var(--user-list-width));
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav {
+    width: var(--main-width);
+    border: none;
+    padding: 5px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.1rem;
+}
+
+header {
+    width: var(--main-width);
+    border: none;
+    /* border-radius: 1rem; */
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+footer {
+    width: var(--main-width);
+}
+
+#ver-info {
+    margin-top: 1rem;
+    text-align: right;
+}
+
+#title {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#logo {
+    height: 3rem;
+}
+
+.popup {
+    position: absolute;
+    top: 300px;
+    left: calc(50% - 150px);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    background: white;
+    border: 2px solid black;
+    /* opacity: 0.8; */
+    word-break: break-all;
+    z-index: 1;
+}
+
+.dropdown {
+    position: absolute;
+    border: 2px solid black;
+    background: white;
+    z-index: 1;
+}
+
+.dropdown-select {
+    padding: 10px;
+    background-color: white;
+}
+
+.dropdown-select:hover {
+    background-color: #DDDDDD;
+}
+
+button {
+    background: white;
+    border: 2px solid skyblue;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background: skyblue;
+    color: white;
+}

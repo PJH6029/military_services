@@ -1,0 +1,65 @@
+{
+    "task": {
+        "GET_ID": {
+            "request": {},
+            "response": {
+                "count": 1,
+                "contents": {
+                        "id": 1,
+                        "name": "task_name",
+                        "created_at": "timestamp"
+                }
+            }
+        },
+        "GET_ALL": {
+            "request": {},
+            "response": {
+                "count": 1,
+                "contents": [
+                    {
+                        "id": 1,
+                        "name": "task_name",
+                        "modified_at": "timestamp"
+                    }
+                ]
+            }
+        },
+        "POST": {
+            "request": {
+                "name": "foo"
+            },
+            "response": {
+                "success": true,
+                "count": 1,
+                "contents": [
+                    {
+                        "id": 1,
+                        "name": "task_name",
+                        "modified_at": "timestamp"
+                    }
+                ]
+            }
+        }
+    },
+    "card": {
+        "GET_ALL": {
+            "request": {},
+            "response": {
+                "count": 1,
+                "contents": [
+                    {
+                        "id": 1,
+                        "task_id": 2,
+                        "title": "title",
+                        "content": "contents",
+                        "progress": 0,
+                        "schedule_start": "2022-12-25 22:40:32",
+                        "schedule_end": "2023-01-01 01:00:00",
+                        "schedule_day": "0123",
+                        "created_at": "2022-12-23 13:20:01"
+                    }
+                ]
+            }
+        }
+    }
+}
