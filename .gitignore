@@ -1,5 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+/study/donotpush/*
+
 # compiled output
 /dist
 /tmp
@@ -101,6 +103,7 @@ static
 *.JPG
 mail*.xml
 *data*.xml
+jquery*.js
 
 # Visual Studio Code
 .vscode
