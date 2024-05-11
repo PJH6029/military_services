@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="./src/style.css">
+	<title>(임시) TODO MATE</title>
+</head>
+<!-- TODO select 부분적 허용  -->
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+	<div class="container">
+		<header>
+			TODO MATE
+			<div id="header-detail">사용법: 오직 클릭과 우클릭, 엔터</span>
+		</header>
+		<div class="wrapper">
+			<div class="container">
+				<div class="controller">
+					<div class="btn" id="backup-btn">백업 내보내기</div>
+					<div class="btn" id="load-backup-btn">백업 불러오기</div>
+					<div id="load-backup-box" class="center" style="display: none;">
+						<input type="file" id="load-backup-input" accept=".json">
+						<button class="btn" id="load-backup-confirm" disabled>불러오기</button>
+						<div class="btn" id="load-backup-cancel">취소</div>
+					</div>
+				</div>
+				<div class="content-container">
+					<div class="calender-container">
+						<div class="calender-header">
+							<div class="month center"><span id="month">4</span>월</div>
+							<div class="month-move-box">
+								<div class="month-btn center" id="month-prev-btn">
+									<svg width="16" height="16" fill="black" viewBox="0 0 16 16">
+										<path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"></path>
+									</svg>
+								</div>
+								<div class="month-btn center" id="month-next-btn">
+									<svg width="16" height="16" fill="black" viewBox="0 0 16 16">
+										<path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"></path>
+									</svg>
+								</div>
+								<div class="month-btn center" id="today-btn">
+									Today
+								</div>
+							</div>
+						</div>
+						<div class="calender-content">
+						</div>
+					</div>
+					<div class="todo-list-container"></div>
+				</div>
+			</div>
+			<div class="side-bar">
+				<div class="side-bar-header center">
+					<span id="see-more">
+						<!-- <img src="./asset/img/seemore.png" class="side-bar-img"> -->
+						☰
+					</span>
+				</div>
+				<div class="side-bar-content">
+					
+				</div>
+			</div>
+		</div>
+		<footer class="center">
+			<span class="developer">Made by 837th 박정훈&nbsp;/&nbsp;</span>
+			<span class="patch-ver">Last Update 23.05.07.</span>
+		</footer>
+	</div>
+
+	<script type="text/javascript" src="./src/index.js"></script>
+</body>
+</html>

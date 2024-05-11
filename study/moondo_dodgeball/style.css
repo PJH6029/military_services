@@ -1,0 +1,70 @@
+body {
+    background: black;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 1000px;
+    height: 800px;
+    margin: calc((100vh - 820px) / 2) auto;
+    position: relative;
+}
+
+canvas {
+    position: absolute;
+}
+
+#canvas {
+    background: #333;
+}
+
+.controller {
+	position: absolute;;
+	top: 0px;
+	left: 1030px;
+	width: 200px;
+	height: 800px;
+}
+
+.mode-select {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.desc {
+	color: white;
+	text-align: center;
+	font-size: 1.3rem;
+}
+
+.btn {
+	background: lightgray;
+	color: black;
+	border-radius: 0.5rem;
+	padding: 0.5rem;
+	cursor: pointer;
+}
+
+.btn[selected] {
+	background: pink;
+}
+
+.stat-board {
+	color: white;
+	position: relative;
+}
+
+.player-board {
+	position: absolute;
+	left: 0;
+}
+
+#board-0 {
+	top: 150px;
+}
+
+#board-1 {
+	top: 550px;
+}

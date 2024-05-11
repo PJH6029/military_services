@@ -1,0 +1,20 @@
+body {
+    background: black;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 1000px;
+    height: 800px;
+    margin: calc((100vh - 820px) / 2) auto;
+    position: relative;
+}
+
+canvas {
+    position: absolute;
+}
+
+#canvas {
+    background: #333;
+}

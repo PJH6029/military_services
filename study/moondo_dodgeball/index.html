@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>문도 피구</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <canvas id="canvas"></canvas>
+        <canvas id="ui"></canvas>
+        <div class="controller">
+        	<div class="mode-select">
+        		<div class="desc">모드 선택</div>
+        		<div class="btn" id="default" selected>기본</div>
+        		<div class="btn" id="random">랜덤</div>
+        		<div class="btn" id="default_urf">우르프</div>
+        		<div class="btn" id="random_urf">랜덤우르프</div>
+        		<div class="btn" id="just_two">단두대</div>
+        		<div class="btn" id="just_one">단한대</div>
+        		<div class="btn" id="super_urf">이걸 하는사람이 있겠어?</div>
+        	</div>
+        	<div class="stat-board" style="display: none;">
+        		<div class="player-board" id="board-0">
+        			<div class="desc">플레이어 0</div>
+        			<div class="stat-hp" id="hp-0"></div>
+        			<div class="stat-flash">점멸: <span id="flash-0">0.00</span></div>
+        			<div class="stat-knife">오대식: <span id="knife-0">0.00</span></div>
+        		</div>
+        		<div class="player-board" id="board-1">
+        			<div class="desc">플레이어 1</div>
+        			<div class="stat-hp" id="hp-1"></div>
+        			<div class="stat-flash">점멸: <span id="flash-1">0.00</span></div>
+        			<div class="stat-knife">오대식: <span id="knife-1">0.00</span></div>
+        		</div>
+        	</div>
+    	</div>
+    </div>
+
+    <script src="./index.js" type="text/javascript"></script>
+</body>
+</html>

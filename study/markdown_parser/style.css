@@ -1,0 +1,21 @@
+header {
+    background: pink;
+    border: 1px solid black;
+}
+
+.container {
+    border: 1px solid black;
+    display: flex;
+}
+
+.input {
+    border: 1px solid black;
+    min-height: 500px;
+    flex: 1 0 0;
+}
+
+.result {
+    border: 1px solid black;
+    min-height: 500px;
+    flex: 1 0 0;
+}
